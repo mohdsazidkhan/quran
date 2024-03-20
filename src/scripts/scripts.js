@@ -5,13 +5,13 @@ export const fetchSurahs = props => {
   fetch("https://api.alquran.cloud/v1/surah")
     .then(response => response.json())
     .then(parsedJSON => {
-      //console.log(parsedJSON , ' parsedJSON.data');
+      console.log('surah' , parsedJSON.data);
       let surahOptions = null;
       if(parsedJSON.code === 200){
         surahOptions = parsedJSON.data.map(function(surah) {
           return {
             value: surah.number,
-            label: surah.name,
+            label: surah.englishName,
             numberOfAyahs: surah.numberOfAyahs
           };
         });
@@ -40,6 +40,7 @@ export const fetchTranslations = props => {
         return {
           label: ISO6391.getNativeName(language),
           options: langTranslations.map(translation => {
+            console.log(translation, ' translation')
             return {
               value: translation.identifier,
               label: translation.name,
@@ -71,12 +72,12 @@ export const fetchTextEditions = props => {
   fetch("https://api.alquran.cloud/v1/edition?format=text&language=ar&type=quran")
     .then(response => response.json())
     .then(parsedJSON => {
-      //console.log("editions", parsedJSON.data);
+      console.log("editions", parsedJSON.data);
 
       const editionList = parsedJSON.data.map(edition => {
         return {
           value: edition.identifier,
-          label: edition.name
+          label: edition.englishName
         };
       });
       props.dispatch({
@@ -91,9 +92,10 @@ export const fetchRecitations = props => {
   .then(response => response.json())
     .then(parsedJSON => {
       const reciterList = parsedJSON.data.map(reciter => {
+        console.log(reciter, ' reciter')
         return {
           value: reciter.identifier,
-          label: reciter.name
+          label: reciter.englishName
         };
       });
       props.dispatch({

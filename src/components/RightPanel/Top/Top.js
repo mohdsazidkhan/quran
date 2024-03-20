@@ -37,13 +37,13 @@ class Top extends Component {
     surahName: {
       direction: "rtl",
       fontFamily: "Lateef",
-      fontSize: 40,
+      fontSize: 35,
       color: "#3594a3"
     },
     bismillah: {
       direction: "rtl",
       fontFamily: "Lateef",
-      fontSize: 40,
+      fontSize: 35,
       color: "#3594a3"
     },
     ayaat : {

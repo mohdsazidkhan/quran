@@ -78,7 +78,7 @@ class Translations extends Component {
           classNamePrefix="optiontext"
           onChange={this.onTranslationChangeHandler}
           options={this.props.translationList.translationList}
-          placeholder="select Translation"
+          placeholder="Select translation"
           styles={this.customStyles}
           value={selectedTranslation}
         />

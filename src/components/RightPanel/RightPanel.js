@@ -48,11 +48,11 @@ class RightPanel extends Component {
         />
       );
     return (
-      <div className="m-2 p-3">
+      <>
         <Top />
         <TextDisplay />
         <Player />
-      </div>
+      </>
     );
   }
 }

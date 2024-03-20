@@ -4,7 +4,7 @@ export const fetchSearchResults = async searchText => {
   //   });
 
   let response = await fetch(
-    "https://api.alquran.cloud/search/" + searchText + "/all/en"
+    "https://api.alquran.cloud/v1/search/" + searchText + "/all/en"
   );
   let parsedJSON = await response.json();
 

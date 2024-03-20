@@ -13,25 +13,16 @@ import Search from "./Search/Search";
 class LeftPanel extends Component {
   render() {
     return (
-      <div className="m-2 p-3 LeftPanel">
-        <h3> Quran </h3>
+      <div className="LeftPanel">
+        <h3 className="mt-2"> Quran e Kareem</h3>
         <Search />
         <TextEditions />
-
         <Tabs className="tabPanel">
-          <TabList>
-            <Tab> By Surah</Tab>
-            {/* <Tab> By Chapter</Tab> */}
-          </TabList>
           <TabPanel>
             <Surah />
             <Translations />
             <Verse />
           </TabPanel>
-          {/* <TabPanel>
-            <Chapter />
-            <Verse />
-          </TabPanel> */}
         </Tabs>
         <Reciter />
       </div>

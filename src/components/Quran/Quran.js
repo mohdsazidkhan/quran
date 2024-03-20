@@ -39,11 +39,12 @@ class Quran extends Component {
     if (this.props.translation.translation !== null) {
       this.fetchTrans();
     }
+    console.log(window, ' wind');
   }
-
+  
   styles = {
     mainDiv: {
-      height: window.innerHeight - 300 + "px",
+      height: window.innerHeight - 114 + "px",
       direction: "rtl"
     }
   };
@@ -79,11 +80,11 @@ class Quran extends Component {
   //TODO: fetch Translation again on verse Range selection
 
   render() {
-    if (!this.state.surah) return <ReactLoading color="green" type="cylon" />;
+    if (!this.state.surah) return <ReactLoading color="#3594a3" type="cylon" />;
 
     if (this.state.searchResult) {
       if (!this.state.searchResults) {
-        return <ReactLoading color="green" type="cylon" />;
+        return <ReactLoading color="#3594a3" type="cylon" />;
       } else {
         return (
           <Scrollbar

@@ -26,11 +26,11 @@ class Search extends Component {
           type="text"
           value={this.state.search}
           onChange={this.handleChange}
-          placeholder="Search Quranic Text"
+          placeholder="Search in Quran"
         />
         <button
           type="submit"
-          className="btn btn-success"
+          className="btn btn-success mr-2"
           onClick={this.handleSubmit}
         >
           Search

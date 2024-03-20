@@ -15,13 +15,13 @@ class SearchResults extends Component {
     }
   };
   render() {
-    if (!this.props.results) return <ReactLoading type="cylon" color="green" />;
+    if (!this.props.results) return <ReactLoading type="cylon" color="#3594a3" />;
     console.log(this.props.results);
     return (
       <div className="SearchResults">
         <div className="top">
           <h3>
-            {this.props.results.count} Search Results found for keyword{" "}
+            {this.props.results.count} Search Results found for {" "}
             {this.props.keyword}
           </h3>
         </div>

@@ -79,11 +79,11 @@ class Verse extends Component {
 
   render() {
     if (!this.props.surahList.surahList)
-      return <ReactLoading color="green" type="spinningBubbles" />;
+      return <ReactLoading color="#3594a3" type="spinningBubbles" />;
     //console.log("slist", this.props.surahList.surahList);
 
     if (!this.state.verseOptions)
-      return <ReactLoading type="bars" color="green" />;
+      return <ReactLoading type="bars" color="#3594a3" />;
     return (
       <div className="Verse">
         <h5>Verse</h5>

@@ -27,10 +27,10 @@ class App extends Component {
   render() {
     return (
       <div className="row" style={this.styles}>
-        <div className="col-md-3 p-2">
+        <div className="col-md-3">
           <LeftPanel />
         </div>
-        <div className="col-md-9 p-2">
+        <div className="col-md-9">
           <RightPanel />
         </div>
       </div>

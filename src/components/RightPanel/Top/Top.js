@@ -37,36 +37,38 @@ class Top extends Component {
     surahName: {
       direction: "rtl",
       fontFamily: "Lateef",
-      fontSize: 65,
-      color: "green"
+      fontSize: 40,
+      color: "#3594a3"
     },
     bismillah: {
       direction: "rtl",
       fontFamily: "Lateef",
-      fontSize: 55,
-      color: "green"
+      fontSize: 40,
+      color: "#3594a3"
+    },
+    ayaat : {
+      fontFamily: "Lateef",
+      fontSize: 24,
+      color: "#3594a3"
     }
   };
 
   render() {
-    if (!this.state.surah) return <ReactLoading color="green" type="cylon" />;
+    if (!this.state.surah) return <ReactLoading color="#3594a3" type="cylon" />;
     //console.log(this.state.surah.name);
     return (
-      <div className="row">
+      <div className="row mt-2">
         <div className="col-md-4">
           <h4 className="text-left" style={this.styles.surahName}>
-            {this.state.surah.englishName}
+            {this.state.surah.englishName}{" - "}<span style={this.styles.ayaat}>{this.state.surah.revelationType}{" - "}
+            {this.state.surah.numberOfAyahs}</span>
           </h4>
+          
         </div>
-
         <div className="col-md-4">
           <h3 className="text-center" style={this.styles.bismillah}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </h3>
-          <h4 className="text-center">
-            {this.state.surah.number} - {this.state.surah.revelationType} -{" "}
-            {this.state.surah.numberOfAyahs}
-          </h4>
         </div>
         <div className="col-md-4">
           <h4 className="text-right" style={this.styles.surahName}>

@@ -43,19 +43,19 @@ class Translations extends Component {
     groupHeading: provided => ({
       ...provided,
       fontSize: 20,
-      color: "green"
+      color: "#3594a3"
     }),
     singleValue: (provided, state) => {
       const opacity = state.isDisabled ? 0.5 : 1;
       const transition = "opacity 300ms";
-      const color = "green";
+      const color = "#3594a3";
       return { ...provided, opacity, transition, color };
     }
   };
 
   render() {
     if (!this.props.translationList.translationList)
-      return <ReactLoading color="green" type="spinningBubbles" />;
+      return <ReactLoading color="#3594a3" type="spinningBubbles" />;
 
     if (this.props.translation.translation !== null) {
       var selectedTranslation = this.props.translationList.translationList.find(

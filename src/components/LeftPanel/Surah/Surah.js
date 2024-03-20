@@ -27,7 +27,7 @@ class Surah extends Component {
   };
   render() {
     if (!this.props.surahList.surahList)
-      return <ReactLoading color="green" type="spinningBubbles" />;
+      return <ReactLoading color="#3594a3" type="spinningBubbles" />;
 
     return (
       <div className="Surah">

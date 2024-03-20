@@ -14,7 +14,7 @@ class TextEditions extends Component {
   };
   render() {
     if (!this.props.editionList.editionList)
-      return <ReactLoading color="green" type="spinningBubbles" />;
+      return <ReactLoading color="#3594a3" type="spinningBubbles" />;
     return (
       <div className="editions">
         <h5>Editions</h5>

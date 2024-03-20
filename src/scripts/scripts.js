@@ -2,7 +2,7 @@ import groupBy from "lodash/groupBy";
 import ISO6391 from "iso-639-1";
 
 export const fetchSurahs = props => {
-  fetch("http://api.alquran.cloud/v1/surah")
+  fetch("https://api.alquran.cloud/v1/surah")
     .then(response => response.json())
     .then(parsedJSON => {
       //console.log(parsedJSON , ' parsedJSON.data');
@@ -26,7 +26,7 @@ export const fetchSurahs = props => {
 };
 
 export const fetchTranslations = props => {
-  fetch("http://api.alquran.cloud/v1/edition?format=text&type=translation")
+  fetch("https://api.alquran.cloud/v1/edition?format=text&type=translation")
     .then(response => response.json())
     .then(parsedJSON => {
       const translations = groupBy(parsedJSON.data, translation => {
@@ -68,7 +68,7 @@ export const fetchTranslations = props => {
 };
 
 export const fetchTextEditions = props => {
-  fetch("http://api.alquran.cloud/v1/edition?format=text&language=ar&type=quran")
+  fetch("https://api.alquran.cloud/v1/edition?format=text&language=ar&type=quran")
     .then(response => response.json())
     .then(parsedJSON => {
       //console.log("editions", parsedJSON.data);
@@ -87,7 +87,7 @@ export const fetchTextEditions = props => {
 };
 
 export const fetchRecitations = props => {
-  fetch("http://api.alquran.cloud/v1/edition?format=audio&type=versebyverse&language=ar")
+  fetch("https://api.alquran.cloud/v1/edition?format=audio&type=versebyverse&language=ar")
   .then(response => response.json())
     .then(parsedJSON => {
       const reciterList = parsedJSON.data.map(reciter => {

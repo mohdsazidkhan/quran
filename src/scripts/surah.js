@@ -1,5 +1,5 @@
 export const fetchSurah = async (props, nextProps) => {
-  console.log("props in fetchsurah", props);
+  //console.log("props in fetchsurah", props);
   let edition = props.edition.edition;
   let surah = props.surah.surah;
   let verseRange = props.verseRange.verseRange;
@@ -12,7 +12,7 @@ export const fetchSurah = async (props, nextProps) => {
 
   let urlForSurah = "https://api.alquran.cloud/v1/surah/" + surah + "/" + edition;
 
-  console.log("verseRange in Surah", verseRange);
+  //console.log("verseRange in Surah", verseRange);
 
   if (verseRange[0] !== 0 && verseRange[1] !== 0) {
     let offset = "?offset=".concat(verseRange[0] - 1);

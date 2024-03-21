@@ -21,7 +21,7 @@ class Surah extends Component {
       type: "SELECTEDSURAH",
       selectedSurah: selectedSurah
     });
-    console.log("selectedSurah", selectedSurah);
+    //console.log("selectedSurah", selectedSurah);
     this.props.dispatch({ type: "SURAH", surah: selectedSurah.value });
     this.props.dispatch({ type: "AYAHRANGE", verseRange: [0, 0] });
   };

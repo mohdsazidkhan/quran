@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import AudioPlayer from "react-responsive-audio-player";
 import ReactLoading from "react-loading";
 import { fetchAudios } from "../../../scripts/audios";
-import "../../../../node_modules/react-responsive-audio-player/dist/audioplayer.css";
+import "./Player.css";
 
 class Player extends Component {
   constructor(props) {

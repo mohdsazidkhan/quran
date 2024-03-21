@@ -12,35 +12,36 @@ class Verse extends Component {
     super(props);
     this.state = {};
   }
-  componentDidMount() {
-    let currentAyah = document.getElementById(
-      "ayah_".concat(this.props.highlight.highlight)
-    );
-    if (currentAyah !== null && currentAyah.className === "text-right ayah") {
-      currentAyah.className = "text-right ayah highlight";
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    // console.log("currentrops", this.props);
-    // console.log("nextProps", nextProps);
-    if (this.props.highlight.highlight !== nextProps.highlight.highlight) {
-      let prevAyah = document.getElementById(
-        "ayah_".concat(this.props.highlight.highlight)
-      );
-      if (
-        prevAyah !== null &&
-        prevAyah.className === "text-right ayah highlight"
-      ) {
-        prevAyah.className = "text-right ayah";
-      }
-      let currentAyah = document.getElementById(
-        "ayah_".concat(nextProps.highlight.highlight)
-      );
-      if (currentAyah !== null && currentAyah.className === "text-right ayah") {
-        currentAyah.className = "text-right ayah highlight";
-      }
-    }
-  }
+  // componentDidMount() {
+  //   let currentAyah = document.getElementById(
+  //     "ayah_".concat(this.props.highlight.highlight)
+  //   );
+  //   if (currentAyah !== null && currentAyah.className === "text-right ayah") {
+  //     currentAyah.className = "text-right ayah highlight";
+  //   }
+  // }
+  //componentWillReceiveProps(nextProps) {
+    //console.log(, ' this.props.highlight.highlight')
+    //console.log("currentrops", Number(this.props.highlight.highlight.toString().split(".")[0]));
+    //console.log("nextProps", Number(this.props.highlight.highlight.toString().split(".")[0]));
+    // if (this.props.highlight.highlight !== nextProps.highlight.highlight) {
+    //   let prevAyah = document.getElementById(
+    //     "ayah_".concat(this.props.highlight.highlight)
+    //   );
+    //   if (
+    //     prevAyah !== null &&
+    //     prevAyah.className === "text-right ayah highlight"
+    //   ) {
+    //     prevAyah.className = "text-right ayah";
+    //   }
+    //   let currentAyah = document.getElementById(
+    //     "ayah_".concat(nextProps.highlight.highlight)
+    //   );
+    //   if (currentAyah !== null && currentAyah.className === "text-right ayah") {
+    //     currentAyah.className = "text-right ayah highlight";
+    //   }
+    // }
+  //}
   jsxJoin = (array, str) => {
     return array.length > 0
       ? array.reduce((result, item) => (
@@ -200,7 +201,7 @@ class Verse extends Component {
 }
 const mapStatesToProps = state => {
   return {
-    highlight: state.highlight,
+    //highlight: state.highlight,
     edition: state.edition
   };
 };

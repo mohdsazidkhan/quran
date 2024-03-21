@@ -39,12 +39,13 @@ class Quran extends Component {
     if (this.props.translation.translation !== null) {
       this.fetchTrans();
     }
-    console.log(window, ' wind');
+    //console.log(window, ' wind');
   }
+
   
   styles = {
     mainDiv: {
-      height: window.innerHeight - 114 + "px",
+      height: window.innerHeight - 108 + "px",
       direction: "rtl"
     }
   };
@@ -65,7 +66,7 @@ class Quran extends Component {
   // }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log("I am in update");
+    //console.log("I am in update", snapshot);
 
     if (this.props !== prevProps) {
       this.fetchSurah(this.props);
@@ -92,9 +93,7 @@ class Quran extends Component {
             rtl={true}
             noScrollX={true}
             scrollTop={0}
-            ref={scrollBar => {
-              this._scrollBar = scrollBar;
-            }}
+            ref={scrollBar => {this._scrollBar = scrollBar}}
           >
             <div> Total Results Found: {this.state.searchResults.count}</div>
             {this.state.searchResults.matches.map(match => {
@@ -111,13 +110,11 @@ class Quran extends Component {
         rtl={true}
         noScrollX={true}
         scrollTop={0}
-        ref={scrollBar => {
-          this._scrollBar = scrollBar;
-        }}
+        ref={scrollBar => {this._scrollBar = scrollBar}}
       >
         {this.state.surah.ayahs.map((ayah, index) => {
           return (
-            <div key={"versecontainer_".concat(ayah.number)}>
+            <div key={"versecontainer_".concat(ayah.number)} className={`${Number(this.props.highlight.highlight.toString().split(".")[0]) === ayah.number ? 'highlight' : ""}`}>
               <Verse
                 ayah={ayah}
                 key={"verse_".concat(ayah.number)}
@@ -141,7 +138,7 @@ class Quran extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state in Quran", state);
+  //console.log("state in Quran", state);
   return {
     surah: state.surah,
     edition: state.edition,

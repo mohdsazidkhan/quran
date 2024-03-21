@@ -41,8 +41,8 @@
   text-align: center;
   line-height: 0px;
 }
-.Verse .highlight {
-  background: #edf4f9;
+.highlight .Verse{
+  background: #d9faff;
 }
 .Verse .wordbywordContainer {
   display: flex;

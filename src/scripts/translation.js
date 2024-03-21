@@ -19,7 +19,7 @@ export const fetchTranslation = async (props, nextProps) => {
     urlForTranslation = urlForTranslation.concat([offset + limit]);
   }
 
-  console.log("urlForTranslation for translation", urlForTranslation);
+  //console.log("urlForTranslation for translation", urlForTranslation);
 
   let response = await fetch(urlForTranslation);
   let parsedJSON = await response.json();

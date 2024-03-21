@@ -1,5 +1,5 @@
 const initialState = {
-  edition: "quran-uthmani-quran-academy"
+  edition: "quran-uthmani"
 };
 
 const EditionReducer = (state = initialState, action) => {

@@ -10,7 +10,9 @@ class Surah extends Component {
     this.state = {};
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    
+  }
 
   onSurahChangeHandler = event => {
     //console.log(event);
@@ -26,6 +28,7 @@ class Surah extends Component {
     this.props.dispatch({ type: "AYAHRANGE", verseRange: [0, 0] });
   };
   render() {
+    //console.log(this.props, ' this.props.surahList.surahList')
     if (!this.props.surahList.surahList)
       return <ReactLoading color="#3594a3" type="spinningBubbles" />;
 
@@ -39,9 +42,7 @@ class Surah extends Component {
           placeholder="Select Surah"
           isRtl={true}
           defaultValue={this.props.surahList.surahList[0]}
-          value={this.props.surahList.surahList.find(
-            element => element.value === this.props.surah.surah
-          )}
+          value={this.props.surahList.surahList.find(element => element.value === this.props.surah.surah)}
         />
       </div>
     );

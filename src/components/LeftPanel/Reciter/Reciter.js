@@ -19,7 +19,7 @@ class Reciter extends Component {
       return <p>Loading Audios list ...</p>;
 
     return (
-      <div>
+      <div className="mt-3">
         <h5>Reciter</h5>
         <Select
           options={this.props.reciterList.reciterList}

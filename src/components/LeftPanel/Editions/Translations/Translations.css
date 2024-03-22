@@ -15,3 +15,10 @@
   text-align: right;
   font-size: 25px;
 }
+
+.Translations .optiontext__placeholder,
+.Translations .optiontext__single-value{
+  font-size: 18px;
+}
+
+

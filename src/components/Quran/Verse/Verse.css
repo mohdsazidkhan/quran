@@ -20,6 +20,12 @@
   padding: 15px 20px;
   direction: rtl;
 }
+.highlight .Verse{
+  background: #3594a3;
+}
+.highlight .Verse .ayah{
+  color: #fff;
+}
 .Verse .ayahContainer {
   width: 35px;
   display: inline-block;
@@ -41,8 +47,8 @@
   text-align: center;
   line-height: 0px;
 }
-.highlight .Verse{
-  background: #d9faff;
+.highlight .Verse .ayahStop{
+  background: #43b2c4;
 }
 .Verse .wordbywordContainer {
   display: flex;

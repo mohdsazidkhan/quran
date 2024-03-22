@@ -16,7 +16,7 @@ class Chapter extends Component {
           {totalChapters.map(function(chapter) {
             return (
               <option value={chapter + 1} key={chapter}>
-                Chapter {chapter + 1}
+                Para {chapter + 1}
               </option>
             );
           })}

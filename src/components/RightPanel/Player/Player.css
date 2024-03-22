@@ -133,7 +133,7 @@
       background-color: transparent;
       width: 0;
       height: 0;
-      border-right: 30px solid rgb(51 112 122);
+      border-right: 30px solid rgb(24 68 75 / 50%);
       border-top: 15px solid transparent;
       border-bottom: 15px solid transparent;
       transition: transform 0.25s ease; }

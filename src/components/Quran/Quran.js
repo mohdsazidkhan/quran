@@ -6,13 +6,13 @@ import Translation from "./Translation/Translation";
 import Scrollbar from "react-scrollbars-custom";
 import { fetchTranslation } from "../../scripts/translation";
 import { fetchSurah } from "../../scripts/surah";
-import { adjustScrollbar } from "../../scripts/scrollbar";
+import { adjustScrollbar, scrollAayat } from "../../scripts/scrollbar";
 
 class Quran extends Component {
   scrollBar = null;
   constructor(props) {
     super(props);
-    this.state = { searchResult: false, translation: null };
+    this.state = { searchResult: false, translation: null, lastSeenAyah: 0 };
   }
 
   fetchTrans = nextProps => {
@@ -40,6 +40,10 @@ class Quran extends Component {
       this.fetchTrans();
     }
     //console.log(window, ' wind');
+    let lastseen = Number(localStorage.getItem("lastSeenAyah"));
+    if(lastseen){
+      this.setState({lastSeenAyah : lastseen})
+    }
   }
 
   
@@ -76,6 +80,13 @@ class Quran extends Component {
     if (snapshot !== null) {
       adjustScrollbar(this.scrollBar, this.props, prevProps);
     }
+    if(typeof this._scrollBar !== "undefined" && this._scrollBar !== null){
+      const storedAyah = localStorage.getItem('lastSeenAyah');
+      if(storedAyah){
+        scrollAayat(this._scrollBar, storedAyah)
+      }
+    }
+
   }
 
   //TODO: fetch Translation again on verse Range selection
@@ -114,7 +125,7 @@ class Quran extends Component {
       >
         {this.state.surah.ayahs.map((ayah, index) => {
           return (
-            <div key={"versecontainer_".concat(ayah.number)} className={`${Number(this.props.highlight.highlight.toString().split(".")[0]) === ayah.number ? 'highlight' : ""}`}>
+            <div key={"versecontainer_".concat(ayah.number)} className={`${Number(this.props.highlight.highlight.toString().split(".")[0]) === ayah.number || this.state.lastSeenAyah === index+1 ? 'highlight' : ""}`}>
               <Verse
                 ayah={ayah}
                 key={"verse_".concat(ayah.number)}

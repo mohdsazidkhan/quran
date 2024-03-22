@@ -10,8 +10,8 @@ class Surah extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    
+  componentDidMount(){
+
   }
 
   onSurahChangeHandler = event => {
@@ -28,7 +28,9 @@ class Surah extends Component {
     this.props.dispatch({ type: "AYAHRANGE", verseRange: [0, 0] });
   };
   render() {
-    //console.log(this.props, ' this.props.surahList.surahList')
+    
+    
+  
     if (!this.props.surahList.surahList)
       return <ReactLoading color="#3594a3" type="spinningBubbles" />;
 

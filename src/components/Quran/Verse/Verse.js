@@ -4,22 +4,31 @@ import { connect } from "react-redux";
 import processString from "react-process-string";
 import ReactHintFactory from "react-hint";
 import "react-hint/css/index.css";
+import {IoEyeOutline, IoEyeSharp} from "react-icons/io5"
 
 const ReactHint = ReactHintFactory(React);
 
 class Verse extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { lastSeenSurah: 0, lastSeenAyah: 0};
   }
-  // componentDidMount() {
-  //   let currentAyah = document.getElementById(
-  //     "ayah_".concat(this.props.highlight.highlight)
-  //   );
-  //   if (currentAyah !== null && currentAyah.className === "text-right ayah") {
-  //     currentAyah.className = "text-right ayah highlight";
-  //   }
-  // }
+  componentDidMount() {
+    // let currentAyah = document.getElementById(
+    //   "ayah_".concat(this.props.highlight.highlight)
+    // );
+    // if (currentAyah !== null && currentAyah.className === "text-right ayah") {
+    //   currentAyah.className = "text-right ayah highlight";
+    // }
+    const storedAyah = localStorage.getItem('lastSeenAyah');
+    if (storedAyah) {
+      this.setState({ lastSeenAyah: Number(storedAyah) });
+    }
+    const storedSurah = localStorage.getItem('lastSeenSurah');
+    if (storedSurah) {
+      this.setState({ lastSeenSurah: Number(storedSurah) });
+    }
+  }
   //componentWillReceiveProps(nextProps) {
     //console.log(, ' this.props.highlight.highlight')
     //console.log("currentrops", Number(this.props.highlight.highlight.toString().split(".")[0]));
@@ -53,7 +62,25 @@ class Verse extends Component {
         ))
       : null;
   };
+  handleAyahChange = (newSurah, newAyah) => {
+    console.log(this.props.surahList.surahList, ' this.props.surahList.surahList')
+    let selectedSurah = this.props.surahList.surahList.find(
+      element => element.value === newSurah
+    );
+    this.props.dispatch({
+      type: "SELECTEDSURAH",
+      selectedSurah: selectedSurah
+    });
+    // Update last seen ayah and save to local storage
+    this.setState({ lastSeenSurah: newSurah });
+    this.setState({ lastSeenAyah: newAyah });
+    localStorage.setItem('lastSeenAyah', Number(newAyah));
+    localStorage.setItem('lastSeenSurah', Number(newSurah));
+  };
+
+
   render() {
+    //console.log(this.state, ' state')
     let ayah = null;
     let tajweedRules = [
       {
@@ -173,6 +200,8 @@ class Verse extends Component {
     } else {
       ayah = this.props.ayah.text;
     }
+    
+
     return (
       <div className="Verse text-right heading">
         <ReactHint events delay={100} />
@@ -193,6 +222,14 @@ class Verse extends Component {
 
           <div className="ayahContainer">
             <span className="ayahStop">{this.props.ayah.numberInSurah}</span>
+            <span title="Last Seen" className="lastSeen" onClick={()=>this.handleAyahChange(this.props.surah, this.props.ayah.numberInSurah)}>
+              {this.state.lastSeenAyah !== 0 && 
+              this.state.lastSeenAyah === this.props.ayah.numberInSurah ?
+              <IoEyeSharp />
+              :
+              <IoEyeOutline />
+              }
+            </span>
           </div>
         </div>
       </div>
@@ -202,6 +239,7 @@ class Verse extends Component {
 const mapStatesToProps = state => {
   return {
     //highlight: state.highlight,
+    surahList: state.surahList,
     edition: state.edition
   };
 };

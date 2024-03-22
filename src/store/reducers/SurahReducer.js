@@ -1,5 +1,6 @@
+let lastSeenSurah = Number(localStorage.getItem('lastSeenSurah'));
 const initialState = {
-  surah: 1
+  surah: lastSeenSurah ? lastSeenSurah : 1 
 };
 
 const SurahReducer = (state = initialState, action) => {

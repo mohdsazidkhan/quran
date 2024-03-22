@@ -50,6 +50,14 @@
 .highlight .Verse .ayahStop{
   background: #43b2c4;
 }
+.lastSeen{
+  position: absolute;
+  left: 15px;
+  cursor: pointer;
+}
+.lastSeen svg{
+  font-size: 28px;
+}
 .Verse .wordbywordContainer {
   display: flex;
   justify-content: right;

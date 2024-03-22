@@ -178,6 +178,11 @@
     @media screen and (min-width: 720px) {
       .audio_player .audio_info {
         animation: initial; } }
+    @media screen  and (max-width: 768px){
+      .audio_player {
+        left: 0;
+      }
+    }    
   
   
   /*# sourceMappingURL=audioplayer.css.map*/

@@ -51,8 +51,10 @@
     display: flex;
     flex-direction: row;
     height: 50px;
-    background-color: rgb(29 97 107 / 90%);
+    background-color: rgb(24 68 75 / 50%);
     width: 100%;
+    position: fixed;
+    bottom: 0;
     /* http://codepen.io/aralon/pen/NqGWXZ */ }
     .audio_player .spacer {
       width: 10px; }

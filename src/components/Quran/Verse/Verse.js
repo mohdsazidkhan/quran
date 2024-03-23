@@ -63,19 +63,29 @@ class Verse extends Component {
       : null;
   };
   handleAyahChange = (newSurah, newAyah) => {
-    console.log(this.props.surahList.surahList, ' this.props.surahList.surahList')
-    let selectedSurah = this.props.surahList.surahList.find(
-      element => element.value === newSurah
-    );
-    this.props.dispatch({
-      type: "SELECTEDSURAH",
-      selectedSurah: selectedSurah
-    });
-    // Update last seen ayah and save to local storage
-    this.setState({ lastSeenSurah: newSurah });
-    this.setState({ lastSeenAyah: newAyah });
-    localStorage.setItem('lastSeenAyah', Number(newAyah));
-    localStorage.setItem('lastSeenSurah', Number(newSurah));
+    if(this.state.lastSeenSurah === newSurah && this.state.lastSeenAyah === newAyah){
+      this.setState({ lastSeenSurah: 0 });
+      this.setState({ lastSeenAyah: 0 });
+      localStorage.removeItem("lastSeenAyah");
+      localStorage.removeItem("lastSeenSurah");
+    }else{
+      // Update last seen ayah and save to local storage
+      this.setState({ lastSeenSurah: newSurah });
+      this.setState({ lastSeenAyah: newAyah });
+      localStorage.removeItem("lastSeenAyah");
+      localStorage.removeItem("lastSeenSurah");
+      localStorage.setItem('lastSeenAyah', Number(newAyah));
+      localStorage.setItem('lastSeenSurah', Number(newSurah));
+  
+      let selectedSurah = this.props.surahList.surahList.find(
+        element => element.value === newSurah
+      );
+      this.props.dispatch({
+        type: "SELECTEDSURAH",
+        selectedSurah: selectedSurah
+      });
+    }
+    
   };
 
 
@@ -222,15 +232,14 @@ class Verse extends Component {
 
           <div className="ayahContainer">
             <span className="ayahStop">{this.props.ayah.numberInSurah}</span>
-            <span title="Last Seen" className="lastSeen" onClick={()=>this.handleAyahChange(this.props.surah, this.props.ayah.numberInSurah)}>
-              {this.state.lastSeenAyah !== 0 && 
-              this.state.lastSeenAyah === this.props.ayah.numberInSurah ?
+          </div>
+          <div title="Last Seen" className="lastSeen" onClick={()=>this.handleAyahChange(this.props.surah, this.props.ayah.numberInSurah)}>
+              {this.state.lastSeenAyah !== 0 && this.state.lastSeenAyah === this.props.ayah.numberInSurah ?
               <IoEyeSharp />
               :
               <IoEyeOutline />
               }
-            </span>
-          </div>
+            </div>
         </div>
       </div>
     );

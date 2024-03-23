@@ -9,12 +9,13 @@ import Translations from "./Editions/Translations/Translations";
 import "react-tabs/style/react-tabs.css";
 import "./LeftPanel.css";
 import Search from "./Search/Search";
+import { connect } from "react-redux";
 
 class LeftPanel extends Component {
   render() {
     return (
-      <div className="LeftPanel">
-        <h3 className="mt-2">Quran-E-Kareem</h3>
+      <div className={`LeftPanel ${this.props.settings.settings ? 'showPanel' : ""}`}>
+        <h4 className="mt-2">Quran e Kareem</h4>
         <Search />
         <TextEditions />
         {/* <Tabs className="tabPanel"> */}
@@ -38,4 +39,10 @@ class LeftPanel extends Component {
   }
 }
 
-export default LeftPanel;
+const mapStatesToProps = state => {
+  return {
+    settings: state.settings,
+  };
+};
+
+export default connect(mapStatesToProps)(LeftPanel);

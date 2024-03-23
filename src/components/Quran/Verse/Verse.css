@@ -11,13 +11,13 @@
   font-size: 50px;
   direction: rtl;
   border: 1px solid #e2e2e2;
-  padding: 15px 20px;
+  padding: 10px 15px 0 15px;
 }
 .Verse .ayah {
   font-family: "Lateef";
   font-size: 50px;
   border: 1px solid #e2e2e2;
-  padding: 15px 20px;
+  padding: 10px 15px 0 15px;
   direction: rtl;
 }
 .highlight .Verse{
@@ -51,8 +51,6 @@
   background: #43b2c4;
 }
 .lastSeen{
-  position: absolute;
-  left: 15px;
   cursor: pointer;
 }
 .lastSeen svg{
@@ -146,4 +144,10 @@
 
 .Verse .ayah span div {
   /* display: inline; */
+}
+@media screen and (max-width:768px) {
+  .Verse .ayah {
+      font-size: 32px;
+      padding: 10px 15px 0 15px;
+  }
 }

@@ -12,6 +12,7 @@ import EditionListReducer from "./reducers/EditionListReducer";
 import ReciterListReducer from "./reducers/ReciterListReducer";
 import SelectedSurahReducer from "./reducers/SelectedSurahReducer";
 import SearchReducer from "./reducers/SearchReducer";
+import SettingsReducer from "./reducers/SettingsReducer"
 
 const rootReducer = combineReducers({
   surahList: SurahListReducer,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   translation: TranslationReducer,
   audio: ReciterReducer,
   verseRange: VerseRangeReducer,
-  highlight: HighlightReducer
+  highlight: HighlightReducer,
+  settings: SettingsReducer
 });
 const store = createStore(rootReducer);
 

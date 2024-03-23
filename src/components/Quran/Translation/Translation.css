@@ -23,3 +23,10 @@
   color: #1da4b9;
   text-align: left;
 }
+
+.highlight .Translation.heading{
+  background-color: #3594a3;
+}
+.highlight .Translation .ayah{
+  color: #fff;
+}

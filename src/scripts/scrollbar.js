@@ -26,7 +26,7 @@ export const scrollAayat = (scrollBar, aayatNumber) => {
     let scrollValue = scrollBar.getScrollValues().scrollTop;
     if(element !== null){
       const rect = element.getBoundingClientRect(); // Get the position and dimensions of the element
-      scrollValue += rect.top + window.screen.height; // Calculate the position from the top of the viewport
+      scrollValue += (rect.top + window.screen.height); // Calculate the position from the top of the viewport
       console.log('Position from top:', scrollValue);
       //this.scrollBar
       scrollBar.scrollTo(scrollValue);

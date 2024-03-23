@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReactLoading from "react-loading";
 import { fetchSurah } from "../../../scripts/surah";
+import {IoClose, IoMenu} from "react-icons/io5"
 
 class Top extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {}
   }
 
   fetchSurah = nextProps => {
@@ -33,45 +34,40 @@ class Top extends Component {
       this.fetchSurah(this.props);
     }
   }
-  styles = {
-    surahName: {
-      direction: "rtl",
-      fontFamily: "Lateef",
-      fontSize: 35,
-      color: "#3594a3"
-    },
-    bismillah: {
-      direction: "rtl",
-      fontFamily: "Lateef",
-      fontSize: 35,
-      color: "#3594a3"
-    },
-    ayaat : {
-      fontFamily: "Lateef",
-      fontSize: 24,
-      color: "#3594a3"
-    }
-  };
+
+  handleSettings = () => {
+    this.props.dispatch({
+      type: "SHOWSETTINGS",
+      settings: !this.props.settings.settings
+    });
+  }
 
   render() {
     if (!this.state.surah) return <ReactLoading color="#3594a3" type="cylon" />;
     //console.log(this.state.surah.name);
     return (
       <div className="row mt-2">
-        <div className="col-md-4">
-          <h4 className="text-left" style={this.styles.surahName}>
-            {this.state.surah.englishName}{" - "}<span style={this.styles.ayaat}>{this.state.surah.revelationType}{" - "}
+        <div className="col-md-12 mobile-block justify-content-between align-items-center">
+          <h4 className="text-left settings" onClick={this.handleSettings}>{this.props.settings.settings ? <IoClose/>  : <IoMenu />}</h4>
+          <h4 className="text-right surahName">
+          <span className="ayaat">{this.state.surah.revelationType}{" - "}
+            {this.state.surah.numberOfAyahs}</span>{" - "}{this.state.surah.name}
+          </h4>
+        </div>
+        <div className="col-md-4 mobile-none">
+          <h4 className="text-left surahName">
+            {this.state.surah.englishName}{" - "}<span className="ayaat">{this.state.surah.revelationType}{" - "}
             {this.state.surah.numberOfAyahs}</span>
           </h4>
           
         </div>
-        <div className="col-md-4">
-          <h3 className="text-center" style={this.styles.bismillah}>
+        <div className="col-md-4 mobile-none">
+          <h3 className="text-center bismillah">
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </h3>
         </div>
-        <div className="col-md-4">
-          <h4 className="text-right" style={this.styles.surahName}>
+        <div className="col-md-4 mobile-none">
+          <h4 className="text-right surahName">
             {this.state.surah.name}
           </h4>
         </div>
@@ -86,7 +82,8 @@ const mapStatesToProps = state => {
     edition: state.edition,
     chapter: state.chapter,
     translation: state.translation,
-    verseRange: state.verseRange
+    verseRange: state.verseRange,
+    settings: state.settings,
   };
 };
 
